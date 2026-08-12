@@ -1,0 +1,2 @@
+# board text + theme JSON are served raw; keep LF in the blob
+* text=auto eol=lf
