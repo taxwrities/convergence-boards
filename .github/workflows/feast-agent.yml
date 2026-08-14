@@ -1,11 +1,14 @@
 # .github/workflows/feast-agent.yml
-# Daily Catholic feast layer board — runs at 9:00 AM Eastern (13:00 UTC),
+# Daily Catholic feast layer board — runs at 9:07 AM Eastern (13:07 UTC),
 # commits data/feast/YYYY-MM-DD.html + latest.html back to the repo.
+# The :07 is deliberate. On 2026-08-14 the original "0 13 * * *" never fired —
+# top-of-hour is the most contended slot on Actions and schedules are
+# best-effort, so a few minutes off the hour is the standard mitigation.
 name: feast-agent
 
 on:
   schedule:
-    - cron: "0 13 * * *"
+    - cron: "7 13 * * *"
   workflow_dispatch: {}   # manual "Run workflow" button for reruns
 
 permissions:
