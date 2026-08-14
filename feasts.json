@@ -1,0 +1,147 @@
+{
+  "_schema": {
+    "feast": "MM-DD fixed feast date (the date hook, same as founder birth/death hooks)",
+    "name": "primary saint name",
+    "phrases": "list of ALL-CAPS phrases to run through the 8 ciphers into the day pool (names, titles, patronages, places, story terms)",
+    "death_year": "year of death (enters pool as-is; anniversary span = current year - death_year, used as-is only, NO factorization per rule)",
+    "death_date": "MM-DD if known, null if not",
+    "age": "age at death if known (enters pool as-is)",
+    "patronage": "human-readable patronage list for narrative routing",
+    "narratives": "story keys for routing to players/teams",
+    "blurb": "pre-baked story summary (written once, costs nothing daily)"
+  },
+  "_rules": {
+    "no_factorization": "numbers count as-is or not at all — never break a number apart to manufacture a hit",
+    "echo_tier": "same-day landings = full weight; +/-1 day = echo tier (weaker)",
+    "strongest_stamp": "narrative carrier + number carrier converging on one player"
+  },
+  "_lock": { "phrase": "JESUIT ORDER", "ordinal": 144, "reduction": 54, "reverse_ordinal": 153, "reverse_reduction": 72, "satanic": 529 },
+  "entries": [
+    {
+      "feast": "08-11",
+      "name": "Clare of Assisi",
+      "phrases": ["CLARE", "SAINT CLARE", "SAINT CLARE OF ASSISI", "SANTA CHIARA", "POOR CLARES", "MONSTRANCE", "TELEVISION", "ASSISI"],
+      "death_year": 1253, "death_date": "08-11", "age": 59,
+      "patronage": ["television", "eye disease", "goldsmiths", "laundry"],
+      "narratives": ["television/broadcast", "clarity/vision", "poverty embraced"],
+      "blurb": "Follower of Francis, founded the Poor Clares. On her deathbed she saw Mass projected on her wall — why she is patron of television."
+    },
+    {
+      "feast": "08-12",
+      "name": "Jane Frances de Chantal",
+      "phrases": ["JANE FRANCES DE CHANTAL", "SAINT JANE FRANCES DE CHANTAL", "CHANTAL", "FRANCES", "VISITATION", "WIDOWS", "FORGOTTEN PEOPLE"],
+      "death_year": 1641, "death_date": "12-13", "age": 69,
+      "patronage": ["widows", "forgotten people", "in-law problems", "loss of parents", "parents separated from children"],
+      "narratives": ["widows/loss", "the forgotten man", "family separation"],
+      "blurb": "Widowed young, founded the Visitation order with Francis de Sales. Patroness of widows and the forgotten."
+    },
+    {
+      "feast": "08-13",
+      "name": "Pontian and Hippolytus",
+      "phrases": ["PONTIAN", "SAINT PONTIAN", "POPE PONTIAN", "HIPPOLYTUS", "SAINT HIPPOLYTUS", "PONTIAN AND HIPPOLYTUS", "ANTIPOPE", "HORSES", "HORSE", "PRISON GUARDS", "SARDINIA", "MINES", "ABDICATION", "MARTYRS", "CASSIAN", "SAINT CASSIAN", "TEACHERS", "STENOGRAPHERS", "IMOLA"],
+      "death_year": 235, "death_date": null, "age": null,
+      "patronage": ["horses (Hippolytus)", "prison guards (Hippolytus)", "teachers (Cassian)", "stenographers (Cassian)"],
+      "narratives": ["horses/workhorse", "abdication/step-down (first papal resignation; pope #18)", "rivals reconciled (pope + first antipope)", "lockdown/guards", "student beats teacher (Cassian)", "martyrs red"],
+      "blurb": "Pope Pontian (#18, first to resign) and Hippolytus (first antipope) — rivals exiled to the Sardinian mines who reconciled and died together, 235 AD. Old calendar adds Cassian of Imola, the teacher stabbed to death by his own students' styluses."
+    },
+    {
+      "feast": "08-14",
+      "name": "Maximilian Kolbe",
+      "phrases": ["MAXIMILIAN KOLBE", "SAINT MAXIMILIAN KOLBE", "KOLBE", "AUSCHWITZ", "PRISONERS", "JOURNALISTS", "AMATEUR RADIO", "STARVATION BUNKER", "VOLUNTEER"],
+      "death_year": 1941, "death_date": "08-14", "age": 47,
+      "patronage": ["prisoners", "journalists", "amateur radio operators", "drug addicts", "families"],
+      "narratives": ["substitution/sacrifice (took another man's place)", "prisoners", "radio/broadcast", "the volunteer"],
+      "blurb": "Franciscan friar who volunteered to die in place of a stranger at Auschwitz, 1941. The ultimate substitution story — one man stepping in for another."
+    },
+    {
+      "feast": "08-15",
+      "name": "Assumption of Mary",
+      "phrases": ["ASSUMPTION", "THE ASSUMPTION", "ASSUMPTION OF MARY", "VIRGIN MARY", "MARY", "QUEEN OF HEAVEN", "TAKEN UP"],
+      "death_year": null, "death_date": null, "age": null,
+      "patronage": ["holy day of obligation — highest-weight Marian feast of the year"],
+      "narratives": ["elevation/taken up (call-ups, promotions, career highs)", "Mary names (Maria, Marte, Marius)", "queen/crown"],
+      "blurb": "Mary taken body and soul into heaven — the biggest feast of August. Elevation is the theme: rising, call-ups, career peaks."
+    },
+    {
+      "feast": "08-16",
+      "name": "Stephen of Hungary",
+      "phrases": ["STEPHEN OF HUNGARY", "SAINT STEPHEN", "STEPHEN", "KING STEPHEN", "HUNGARY", "CROWN"],
+      "death_year": 1038, "death_date": "08-15", "age": null,
+      "patronage": ["Hungary", "kings", "masons", "stonecutters"],
+      "narratives": ["kings/crown", "Stephen names", "nation-founder"],
+      "blurb": "First King of Hungary, crowned in 1000 AD, founded the Hungarian state and church. A king's day — crowns and Stephen names."
+    },
+    {
+      "feast": "08-20",
+      "name": "Bernard of Clairvaux",
+      "phrases": ["BERNARD OF CLAIRVAUX", "SAINT BERNARD", "BERNARD", "CLAIRVAUX", "BEEKEEPERS", "CISTERCIANS", "HONEY"],
+      "death_year": 1153, "death_date": "08-20", "age": 63,
+      "patronage": ["beekeepers", "bees", "candlemakers", "Cistercians", "Gibraltar"],
+      "narratives": ["bees/honey/swarm", "Bernard names", "the honeyed speaker (Doctor Mellifluus)"],
+      "blurb": "Cistercian abbot, the 'honey-sweet doctor' whose preaching launched the Second Crusade. Bees and honey are his signs."
+    },
+    {
+      "feast": "08-21",
+      "name": "Pius X",
+      "phrases": ["PIUS X", "POPE PIUS X", "SAINT PIUS THE TENTH", "PIUS", "FIRST COMMUNION", "PILGRIMS"],
+      "death_year": 1914, "death_date": "08-20", "age": 79,
+      "patronage": ["first communicants", "pilgrims", "catechists"],
+      "narratives": ["pope day", "firsts (first communion → first career anything)", "pilgrims/travelers"],
+      "blurb": "Pope who died as World War I broke out, 1914. Lowered the age for first communion — a day for firsts."
+    },
+    {
+      "feast": "08-23",
+      "name": "Rose of Lima",
+      "phrases": ["ROSE OF LIMA", "SAINT ROSE", "ROSE", "LIMA", "PERU", "GARDENERS", "FLORISTS", "EMBROIDERERS"],
+      "death_year": 1617, "death_date": "08-24", "age": 31,
+      "patronage": ["Peru", "the Americas", "gardeners", "florists", "embroiderers"],
+      "narratives": ["Rose names", "gardens/flowers", "the Americas / Latin American players", "died at 31"],
+      "blurb": "First canonized saint of the Americas, a Peruvian mystic who died at 31. Roses, gardens, and Latin America carry her day."
+    },
+    {
+      "feast": "08-24",
+      "name": "Bartholomew the Apostle",
+      "phrases": ["BARTHOLOMEW", "SAINT BARTHOLOMEW", "BARTHOLOMEW THE APOSTLE", "FLAYED", "TANNERS", "BUTCHERS", "LEATHERWORKERS", "APOSTLE"],
+      "death_year": null, "death_date": null, "age": null,
+      "patronage": ["tanners", "leatherworkers", "butchers", "plasterers", "bookbinders", "Armenia"],
+      "narratives": ["skinned/torched (blowouts, getting flayed)", "leather (the ball, gloves)", "apostle day", "Bart names"],
+      "blurb": "Apostle martyred by being flayed alive — patron of everyone who works leather. The leather day: gloves, the ball itself."
+    },
+    {
+      "feast": "08-25",
+      "name": "Louis IX of France",
+      "phrases": ["LOUIS IX", "SAINT LOUIS", "KING LOUIS", "LOUIS", "FRANCE", "CRUSADER", "CROWN OF THORNS"],
+      "death_year": 1270, "death_date": "08-25", "age": 56,
+      "patronage": ["France", "French monarchy", "crusaders", "Third Order Franciscans"],
+      "narratives": ["SAINT LOUIS — the city, the Cardinals", "kings/crown", "Louis names", "crusade/campaign"],
+      "blurb": "The crusader king of France who died on crusade in 1270 — the saint the city of St. Louis is named for. Cardinals games carry his day automatically."
+    },
+    {
+      "feast": "08-27",
+      "name": "Monica",
+      "phrases": ["MONICA", "SAINT MONICA", "MOTHERS", "PERSEVERANCE", "OSTIA", "TEARS"],
+      "death_year": 387, "death_date": null, "age": 55,
+      "patronage": ["mothers", "wives", "conversion of relatives", "alcoholics", "difficult marriages"],
+      "narratives": ["mothers/perseverance", "long-awaited payoff (prayed 17 years for Augustine)", "tears to joy"],
+      "blurb": "Mother of Augustine, prayed 17 years for her son's conversion and lived to see it. The long-awaited-payoff day."
+    },
+    {
+      "feast": "08-28",
+      "name": "Augustine of Hippo",
+      "phrases": ["AUGUSTINE", "SAINT AUGUSTINE", "AUGUSTINE OF HIPPO", "HIPPO", "THEOLOGIANS", "BREWERS", "PRINTERS", "CONFESSIONS"],
+      "death_year": 430, "death_date": "08-28", "age": 75,
+      "patronage": ["theologians", "brewers", "printers", "sore eyes"],
+      "narratives": ["HIPPO — echo of Hippolytus/horse family", "conversion/turnaround (slumping player breaks out)", "Augustine/Austin names", "brewers — Milwaukee carries the day by name"],
+      "blurb": "The wild-living convert who became the Church's greatest mind, bishop of Hippo, died 430. Brewers games carry his patronage by name."
+    },
+    {
+      "feast": "08-29",
+      "name": "Beheading of John the Baptist",
+      "phrases": ["JOHN THE BAPTIST", "SAINT JOHN THE BAPTIST", "BEHEADING", "THE BAPTIST", "HEROD", "SALOME", "PLATTER"],
+      "death_year": null, "death_date": null, "age": null,
+      "patronage": ["baptism", "converts", "the martyrdom feast of the Forerunner"],
+      "narratives": ["beheading (closers losing heads, aces knocked out early)", "John names", "the dance that cost a head (showboating punished)"],
+      "blurb": "The Forerunner beheaded at Herod's banquet after Salome's dance. The severed-head day — sudden cuts, early exits."
+    }
+  ]
+}
