@@ -119,6 +119,22 @@ def roster(team_id):
     except Exception:
         return []
 
+def callups(d: date):
+    """Players recalled/selected TODAY — elevation carriers ('taken up')."""
+    try:
+        data = _get(f"{API}/transactions?startDate={d.isoformat()}"
+                    f"&endDate={d.isoformat()}")
+        up = set()
+        for t in data.get("transactions", []):
+            desc = (t.get("description") or "").lower()
+            if any(k in desc for k in ("recalled", "selected the contract",
+                                       "contract purchased", "called up")):
+                p = t.get("person", {}).get("fullName")
+                if p: up.add(p)
+        return up
+    except Exception:
+        return set()
+
 # ------------------------------------------------------- board overlay -----
 BOARD_URL = ("https://raw.githubusercontent.com/taxwrities/convergence-boards/"
              "main/data/boards/{}.txt")
@@ -150,6 +166,19 @@ def scan_name(name, pool):
             for label in pool.get(v, []):
                 hits.append(("last", cname, v, label))
     return hits
+
+def root_flags(name, lexicon, wanted):
+    """Etymology/translation puns, checked mechanically: any lexicon root
+    inside the name whose meaning is on today's wanted list gets flagged.
+    (Montgomery rule: MONT = mount on Dormition day should never be missed
+    by a human again.)"""
+    n = " " + "".join(c for c in __import__("unicodedata").normalize(
+        "NFD", name.upper()) if c.isalpha() or c == " ") + " "
+    out = []
+    for root, meaning in lexicon.items():
+        if meaning in wanted and root in n:
+            out.append(f"⚑ {root.strip()}→{meaning.split('-')[0].upper()}")
+    return out
 
 # ----------------------------------------------------------------- html ----
 CSS = """
@@ -224,8 +253,12 @@ def render(d, entry, games_out, pool, board_present):
             if row["onboard"]: cls.append("onboard")
             name_cell = (f'<span class="pit">SP </span>{row["name"]}'
                          if row["sp"] else row["name"])
+            cell = fmt_hits(row["hits"])
+            if row.get("flags"):
+                cell = "<b>" + " · ".join(row["flags"]) + "</b>" + \
+                       ("; " + cell if cell != "—" else "")
             html.append(f'<tr class="{" ".join(cls)}"><td>{name_cell}</td>'
-                        f'<td>{fmt_hits(row["hits"])}</td></tr>')
+                        f'<td>{cell}</td></tr>')
         html.append("</table></div>")
 
     board_note = ("▸board marks names appearing in today's convergence board file."
@@ -233,7 +266,8 @@ def render(d, entry, games_out, pool, board_present):
                   "No convergence board file found for today — feast layer only.")
     total = sum(len(g["rows"]) for g in games_out)
     html.append(f'<div class="foot">{total} names scanned, all shown. '
-                f'Numbers as-is only — no factorization. {board_note}</div>'
+                f'Numbers as-is only — no factorization. ▲ = called up today '
+                f'(elevation carrier). {board_note}</div>'
                 "</body></html>")
     return "".join(html)
 
@@ -257,6 +291,9 @@ def main():
     pool = build_pool(entry, d)
     board = board_text(d)
     games = slate(d)
+    up_today = callups(d)
+    lexicon = feasts.get("_roots", {})
+    wanted = set(entry.get("roots", []))
 
     # threshold for shading: 3+ hits or any hit on a multi-source pool number
     def is_big(hits):
@@ -277,8 +314,11 @@ def main():
             if n in seen: continue
             seen.add(n)
             hits = scan_name(n, pool)
-            rows.append({"name": n, "sp": sp, "hits": hits,
-                         "big": is_big(hits),
+            up = n in up_today
+            flags = root_flags(n, lexicon, wanted)
+            rows.append({"name": ("▲ " + n) if up else n, "sp": sp,
+                         "hits": hits, "flags": flags,
+                         "big": is_big(hits) or up or bool(flags),
                          "onboard": bool(board) and n in board})
         rows.sort(key=lambda r: (not r["sp"], -len(r["hits"])))
         t = g["time"][11:16] if len(g["time"]) >= 16 else ""

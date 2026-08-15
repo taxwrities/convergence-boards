@@ -16,6 +16,50 @@
     "strongest_stamp": "narrative carrier + number carrier converging on one player"
   },
   "_lock": { "phrase": "JESUIT ORDER", "ordinal": 144, "reduction": 54, "reverse_ordinal": 153, "reverse_reduction": 72, "satanic": 529 },
+  "_roots": {
+    "MONT": "mount", "MONTE": "mount", "BERG": "mount", "SION": "mount",
+    "CRUZ": "cross", "CROSS": "cross", "CRUCE": "cross",
+    "CAVALL": "horse", "CABALL": "horse", "COLT": "horse", "STEED": "horse", "PHILIP": "horse", "MARSH": "horse",
+    "REY": "king", "REYES": "king", "ROY": "king", "KING": "king", "REX": "king",
+    "REINA": "queen", "REGINA": "queen", "QUEEN": "queen",
+    "CORONA": "crown", "CROWN": "crown", "LAURE": "crown",
+    "ANGEL": "angel", "SERAF": "angel",
+    "SANTOS": "saint", "SANTANA": "saint", "SANTIAGO": "saint", "SAN ": "saint",
+    "IGLESIAS": "church", "KIRK": "church", "CHURCH": "church", "TEMPLE": "church", "CHAPEL": "church",
+    "OBISPO": "bishop", "BISHOP": "bishop", "POPE": "pope", "PAPA": "pope",
+    "ABBOT": "abbot", "ABAD": "abbot", "MONK": "monk", "PRIEST": "priest", "PASTOR": "shepherd", "SHEPHERD": "shepherd", "DEACON": "deacon",
+    "STELLA": "star", "ESTRELLA": "star", "STAR": "star", "ASTRO": "star",
+    "SOL": "sun", "SUN": "sun", "LUNA": "moon", "MOON": "moon",
+    "MAR": "sea", "MER": "sea", "OCEAN": "sea", "RIOS": "river", "RIVERS": "river",
+    "LUZ": "light", "LUCE": "light", "LIGHT": "light", "CLAR": "light",
+    "ROSA": "rose", "ROSE": "rose", "FLOR": "flower", "LILY": "lily", "LILLI": "lily",
+    "BLANCO": "white", "BIANCO": "white", "WEISS": "white", "WHITE": "white", "BLANC": "white",
+    "PAZ": "peace", "PACE": "peace",
+    "LEON": "lion", "LOWE": "lion", "TIGER": "tiger",
+    "PIERRE": "rock", "PETER": "rock", "PEDRO": "rock", "STONE": "rock", "STEIN": "rock",
+    "DIOS": "god", "DEUS": "god", "JESUS": "jesus", "CHRIST": "christ", "SALVA": "savior",
+    "GLORIA": "glory", "GRACE": "grace", "VERA": "true",
+    "BELL": "bell", "CAMPANA": "bell",
+    "ROMA": "rome", "ROMO": "rome", "ROMANO": "rome",
+    "MARTIN": "martin-pope-martyr", "CLEMEN": "clement-pope",
+    "GUERRA": "war", "GUERRERO": "war",
+    "MAYO": "may-marys-month", "MADON": "madonna",
+    "CIEL": "heaven", "HEAVEN": "heaven", "PARADIS": "heaven"
+  },
+  "_vocab": {
+    "STELLA MARIS": "Latin 'Star of the Sea' — Mary's ancient nickname; official patroness of sailors → the Mariners are Mary's team by name",
+    "HAIL MARY": "The Catholic prayer; football's desperation heave is named after it → walk-offs and buzzer-beaters are literally Mary plays",
+    "ASSUMPTION / ASSUMED": "Mary lifted ('assumed') into heaven → 'taken up' = call-ups, elevation, promotions",
+    "QUEEN OF HEAVEN": "Mary's royal title → Royals = the queen's team, Angels = heaven's team",
+    "MOON": "Revelation 12 puts the moon under Mary's feet — and MOON = MARY in 4 ciphers (57/21/197/342)",
+    "PADRES": "Spanish for 'Fathers' (priests) — a church-titled franchise",
+    "KIRK": "Scottish for 'church'",
+    "MAYO": "Spanish for 'May' — the Church's month of Mary",
+    "METS": "No story, pure numbers: METS = MARY in five ciphers (57/51/24/197/342) + Jewish 225 = ASSUMPTION OF MARY",
+    "DORMITION": "The Eastern name for the feast — Mary 'fell asleep'; her tomb was found empty except lilies and roses",
+    "CARDINALS": "A church rank (the red-robed electors of popes) — church-titled franchise",
+    "ANTIPOPE": "A rival claimant to the papacy — Hippolytus (8/13) was the first"
+  },
   "entries": [
     {
       "feast": "08-11",
@@ -41,6 +85,7 @@
       "phrases": ["PONTIAN", "SAINT PONTIAN", "POPE PONTIAN", "HIPPOLYTUS", "SAINT HIPPOLYTUS", "PONTIAN AND HIPPOLYTUS", "ANTIPOPE", "HORSES", "HORSE", "PRISON GUARDS", "SARDINIA", "MINES", "ABDICATION", "MARTYRS", "CASSIAN", "SAINT CASSIAN", "TEACHERS", "STENOGRAPHERS", "IMOLA"],
       "death_year": 235, "death_date": null, "age": null,
       "patronage": ["horses (Hippolytus)", "prison guards (Hippolytus)", "teachers (Cassian)", "stenographers (Cassian)"],
+      "roots": ["horse", "pope", "rock", "rome", "martin-pope-martyr", "clement-pope", "church", "priest", "monk", "abbot", "saint"],
       "narratives": ["horses/workhorse", "abdication/step-down (first papal resignation; pope #18)", "rivals reconciled (pope + first antipope)", "lockdown/guards", "student beats teacher (Cassian)", "martyrs red"],
       "blurb": "Pope Pontian (#18, first to resign) and Hippolytus (first antipope) — rivals exiled to the Sardinian mines who reconciled and died together, 235 AD. Old calendar adds Cassian of Imola, the teacher stabbed to death by his own students' styluses."
     },
@@ -56,10 +101,11 @@
     {
       "feast": "08-15",
       "name": "Assumption of Mary",
-      "phrases": ["ASSUMPTION", "THE ASSUMPTION", "ASSUMPTION OF MARY", "VIRGIN MARY", "MARY", "QUEEN OF HEAVEN", "TAKEN UP"],
+      "phrases": ["ASSUMPTION", "THE ASSUMPTION", "ASSUMPTION OF MARY", "VIRGIN MARY", "MARY", "QUEEN OF HEAVEN", "TAKEN UP", "HAIL MARY", "OUR LADY", "STELLA MARIS", "MOON", "SUN", "TWELVE STARS", "CROWN", "QUEEN", "HEAVEN", "EMPTY TOMB", "DORMITION", "MOTHER MARY", "AVE MARIA", "MADONNA", "LILIES", "ASSUMED", "REGINA"],
       "death_year": null, "death_date": null, "age": null,
       "patronage": ["holy day of obligation — highest-weight Marian feast of the year"],
-      "narratives": ["elevation/taken up (call-ups, promotions, career highs)", "Mary names (Maria, Marte, Marius)", "queen/crown"],
+      "roots": ["mount", "queen", "crown", "star", "sea", "moon", "sun", "rose", "lily", "flower", "light", "angel", "heaven", "grace", "glory", "madonna", "may-marys-month", "jesus", "god", "white"],
+      "narratives": ["elevation/taken up (call-ups, promotions, career highs)", "Mary names (Maria, Marte, Marius)", "queen/crown", "Mount Zion — tradition places the Dormition on Mount Zion (Abbey of the Dormition stands there today): MOUNT names carry the day", "Stella Maris → Mariners", "Hail Mary → walk-offs", "white = the day's liturgical color"],
       "blurb": "Mary taken body and soul into heaven — the biggest feast of August. Elevation is the theme: rising, call-ups, career peaks."
     },
     {
