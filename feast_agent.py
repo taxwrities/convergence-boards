@@ -272,11 +272,33 @@ def render(d, entry, games_out, pool, board_present):
     return "".join(html)
 
 # ----------------------------------------------------------------- main ----
+def published_date(out_dir):
+    """Date of the currently published latest.html, or None if absent/unreadable.
+    Read back from the <title> the renderer writes, so there is no sidecar file
+    to drift out of sync with the page itself."""
+    try:
+        with open(os.path.join(out_dir, "latest.html"), encoding="utf-8") as f:
+            m = re.search(r"<title>Feast Agent . (\d{4}-\d{2}-\d{2})</title>",
+                          f.read(8192))
+        return date.fromisoformat(m.group(1)) if m else None
+    except (OSError, ValueError):
+        return None
+
+
 def main():
+    now = datetime.now(timezone.utc)
     if len(sys.argv) > 1:
         d = date.fromisoformat(sys.argv[1])
+        explicit = True
     else:  # US/Eastern "today" regardless of runner timezone
-        d = (datetime.now(timezone.utc) - timedelta(hours=4)).date()
+        d = (now - timedelta(hours=4)).date()
+        explicit = False
+
+    # Resolved date is logged before any work, so a run that fired hours late is
+    # visible in the Actions log rather than being inferred from the output.
+    print(f"feast agent: resolved date {d.isoformat()} "
+          f"({'CLI argument' if explicit else 'derived from ET clock'}); "
+          f"UTC now {now:%Y-%m-%d %H:%M}")
 
     feasts = json.load(open(os.path.join(os.path.dirname(__file__) or ".",
                                          "feasts.json"), encoding="utf-8"))
@@ -332,10 +354,29 @@ def main():
     out_dir = os.path.join(os.path.dirname(__file__) or ".", "data", "feast")
     os.makedirs(out_dir, exist_ok=True)
     page = render(d, entry, games_out, pool, bool(board))
-    for fname in (f"{d.isoformat()}.html", "latest.html"):
-        with open(os.path.join(out_dir, fname), "w", encoding="utf-8") as f:
+
+    # The dated file is always written — regenerating any past day is supported
+    # and harmless, since it only ever touches that day's own file.
+    targets = [f"{d.isoformat()}.html"]
+
+    # latest.html is the bookmark, so it must never move backwards. A run that
+    # slipped past the ET midnight boundary, or a manual regen of an older date
+    # (the README documents `feast_agent.py 2026-08-13`), would otherwise
+    # silently republish a stale board under the live URL.
+    prev = published_date(out_dir)
+    if prev is not None and prev > d:
+        print(f"feast agent: REFUSING to regress latest.html — published board "
+              f"is {prev.isoformat()}, this run resolved {d.isoformat()}. "
+              f"Wrote {d.isoformat()}.html only; latest.html left untouched.")
+    else:
+        targets.append("latest.html")
+
+    for fname in targets:
+        with open(os.path.join(out_dir, fname), "w", encoding="utf-8",
+                  newline="\n") as f:
             f.write(page)
-    print(f"feast agent wrote {len(games_out)} games -> {out_dir}")
+    print(f"feast agent wrote {len(games_out)} games -> {out_dir} "
+          f"({', '.join(targets)})")
 
 if __name__ == "__main__":
     main()
